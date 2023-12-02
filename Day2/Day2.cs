@@ -1,6 +1,7 @@
 namespace AdventOfCode2023
 {
     using System.Text.RegularExpressions;
+    using AdventOfCode2023.Models;
 
     public static class Day2
     {

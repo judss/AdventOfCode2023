@@ -1,3 +1,5 @@
+using AdventOfCode2023.Models;
+
 namespace AdventOfCode2023
 {
     public static class Day

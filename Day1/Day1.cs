@@ -1,6 +1,7 @@
 namespace AdventOfCode2023
 {    
     using System;
+    using AdventOfCode2023.Models;
     using Humanizer;
 
     public static class Day1

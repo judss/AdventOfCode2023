@@ -1,4 +1,4 @@
-namespace AdventOfCode2023
+namespace AdventOfCode2023.Models
 {    
     public class DayResult
     {
