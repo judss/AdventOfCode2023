@@ -1,11 +1,23 @@
-namespace AdventOfCode2023.Day1
+namespace AdventOfCode2023
 {    
     using System;
     using Humanizer;
 
     public static class Day1
     {
-        public static string GetSolution()
+        public static DayResult GetResults()
+        {
+            var dayResult = new DayResult()
+            {
+                Day = 1,
+                Part1Result = GetSolutionPart1(),
+                Part2Result = GetSolutionPart2()
+            };
+
+            return dayResult;
+        }
+
+        private static int GetSolutionPart1()
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), "Day1/PuzzleInput.txt");
             var puzzleInput = File.ReadAllLines(path);
@@ -28,12 +40,10 @@ namespace AdventOfCode2023.Day1
                 numbers.Add(concatinatedNumber);
             }
 
-            var total = numbers.Sum();
-
-            return $"Part 1: {total}";
+            return numbers.Sum();
         }
 
-        public static string GetSolutionPart2()
+        private static int GetSolutionPart2()
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), "Day1/PuzzleInput.txt");
             var puzzleInput = File.ReadAllLines(path);
@@ -50,9 +60,7 @@ namespace AdventOfCode2023.Day1
                 numbers.Add(concatinatedNumber);
             }
 
-            var total = numbers.Sum();
-
-            return $"Part 2: {total}";
+            return numbers.Sum();
         }
 
         private static string[] getFirstAndLastNumbers(string input){
@@ -88,7 +96,7 @@ namespace AdventOfCode2023.Day1
             return result;
         }
 
-        public static IEnumerable<int> AllIndexesOf(this string str, string searchstring)
+        private static IEnumerable<int> AllIndexesOf(this string str, string searchstring)
         {
             int minIndex = str.IndexOf(searchstring);
             while (minIndex != -1)

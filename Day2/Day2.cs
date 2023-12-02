@@ -1,10 +1,22 @@
-namespace AdventOfCode2023.Day2
+namespace AdventOfCode2023
 {
     using System.Text.RegularExpressions;
 
     public static class Day2
     {
-        public static string GetSolution()
+        public static DayResult GetResults()
+        {
+            var dayResult = new DayResult()
+            {
+                Day = 2,
+                Part1Result = GetSolutionPart1(),
+                Part2Result = GetSolutionPart2()
+            };
+
+            return dayResult;
+        }
+
+        private static int GetSolutionPart1()
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), "Day2/PuzzleInput.txt");
             var puzzleInput = File.ReadAllLines(path);
@@ -46,10 +58,10 @@ namespace AdventOfCode2023.Day2
                 }
             }
             
-            return $"Part 1: {total}";
+            return total;
         }
 
-        public static string GetSolutionPart2()
+        private static int GetSolutionPart2()
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), "Day2/PuzzleInput.txt");
             var puzzleInput = File.ReadAllLines(path);
@@ -93,7 +105,7 @@ namespace AdventOfCode2023.Day2
 
             }
             
-            return $"Part 2: {total}";
+            return total;
         }
     }
 }

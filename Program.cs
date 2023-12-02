@@ -1,19 +1,19 @@
-﻿using AdventOfCode2023.Day1;
-using AdventOfCode2023.Day2;
+﻿using AdventOfCode2023;
+
+var solutions = new List<DayResult>()
+{
+    Day1.GetResults(),
+    Day2.GetResults(),
+    Day3.GetResults(),
+};
 
 Console.WriteLine("Advent of Code 2023!");
 Console.WriteLine();
 
-Console.WriteLine("Day 1");
-var day1Solution = Day1.GetSolution();
-var day1SolutionPart2 = Day1.GetSolutionPart2();
-Console.WriteLine(day1Solution);
-Console.WriteLine(day1SolutionPart2);
-Console.WriteLine();
-
-Console.WriteLine("Day 2");
-var day2Solution = Day2.GetSolution();
-var day2SolutionPart2 = Day2.GetSolutionPart2();
-Console.WriteLine(day2Solution);
-Console.WriteLine(day2SolutionPart2);
-Console.WriteLine();
+foreach(var solution in solutions)
+{
+    Console.WriteLine("Day {0}", solution.Day);
+    Console.WriteLine("Part 1: {0}", solution.Part1Result.HasValue ? solution.Part1Result : "TBC");
+    Console.WriteLine("Part 2: {0}", solution.Part2Result.HasValue ? solution.Part2Result : "TBC");
+    Console.WriteLine();
+}
