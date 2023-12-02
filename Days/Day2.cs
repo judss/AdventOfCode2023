@@ -1,15 +1,18 @@
-namespace AdventOfCode2023
+namespace AdventOfCode2023.Days
 {
     using System.Text.RegularExpressions;
     using AdventOfCode2023.Models;
 
     public static class Day2
     {
+        private static readonly int dayNumber = 2;
+        private static readonly string[] puzzleInput = Helper.GetPuzzleInput(dayNumber);
+
         public static DayResult GetResults()
         {
             var dayResult = new DayResult()
             {
-                Day = 2,
+                Day = dayNumber,
                 Part1Result = GetSolutionPart1(),
                 Part2Result = GetSolutionPart2()
             };
@@ -19,9 +22,6 @@ namespace AdventOfCode2023
 
         private static int GetSolutionPart1()
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "Day2/PuzzleInput.txt");
-            var puzzleInput = File.ReadAllLines(path);
-
             var total = 0;
 
             foreach(var game in puzzleInput)
@@ -64,9 +64,6 @@ namespace AdventOfCode2023
 
         private static int GetSolutionPart2()
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "Day2/PuzzleInput.txt");
-            var puzzleInput = File.ReadAllLines(path);
-
             var total = 0;
 
             foreach(var game in puzzleInput)

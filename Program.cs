@@ -1,4 +1,4 @@
-﻿using AdventOfCode2023;
+﻿using AdventOfCode2023.Days;
 using AdventOfCode2023.Models;
 
 var solutions = new List<DayResult>()

@@ -1,9 +1,12 @@
-using AdventOfCode2023.Models;
-
-namespace AdventOfCode2023
+namespace AdventOfCode2023.Days
 {
+    using AdventOfCode2023.Models;
+    
     public static class Day
     {
+        private static readonly int dayNumber = 0;
+        private static readonly string[] puzzleInput = Helper.GetPuzzleInput(dayNumber);
+
         public static DayResult GetResults()
         {
             var dayResult = new DayResult()
@@ -18,11 +21,17 @@ namespace AdventOfCode2023
 
         private static int? GetSolutionPart1()
         {
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "PuzzleInput.txt");
+            var puzzleInput = File.ReadAllLines(path);
+
             return null;
         }
 
         private static int? GetSolutionPart2()
         {
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "PuzzleInput.txt");
+            var puzzleInput = File.ReadAllLines(path);
+
             return null;
         }
     }

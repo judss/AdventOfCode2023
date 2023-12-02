@@ -1,14 +1,17 @@
-using AdventOfCode2023.Models;
-
-namespace AdventOfCode2023
+namespace AdventOfCode2023.Days
 {
+    using AdventOfCode2023.Models;
+
     public static class Day3
     {
+        private static readonly int dayNumber = 3;
+        private static readonly string[] puzzleInput = Helper.GetPuzzleInput(dayNumber);
+
         public static DayResult GetResults()
         {
             var dayResult = new DayResult()
             {
-                Day = 3,
+                Day = dayNumber,
                 Part1Result = GetSolutionPart1(),
                 Part2Result = GetSolutionPart2()
             };

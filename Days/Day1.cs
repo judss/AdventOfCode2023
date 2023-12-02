@@ -1,4 +1,4 @@
-namespace AdventOfCode2023
+namespace AdventOfCode2023.Days
 {    
     using System;
     using AdventOfCode2023.Models;
@@ -6,11 +6,14 @@ namespace AdventOfCode2023
 
     public static class Day1
     {
+        private static readonly int dayNumber = 1;
+        private static readonly string[] puzzleInput = Helper.GetPuzzleInput(dayNumber);
+
         public static DayResult GetResults()
         {
             var dayResult = new DayResult()
             {
-                Day = 1,
+                Day = dayNumber,
                 Part1Result = GetSolutionPart1(),
                 Part2Result = GetSolutionPart2()
             };
@@ -20,8 +23,6 @@ namespace AdventOfCode2023
 
         private static int GetSolutionPart1()
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "Day1/PuzzleInput.txt");
-            var puzzleInput = File.ReadAllLines(path);
             var numbers = new List<int>();
 
             foreach(var input in puzzleInput)
@@ -46,8 +47,6 @@ namespace AdventOfCode2023
 
         private static int GetSolutionPart2()
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "Day1/PuzzleInput.txt");
-            var puzzleInput = File.ReadAllLines(path);
             var numbers = new List<int>();
 
             foreach(var input in puzzleInput)
@@ -95,16 +94,6 @@ namespace AdventOfCode2023
             result[1] = lastNumberAndIndex.Value;
 
             return result;
-        }
-
-        private static IEnumerable<int> AllIndexesOf(this string str, string searchstring)
-        {
-            int minIndex = str.IndexOf(searchstring);
-            while (minIndex != -1)
-            {
-                yield return minIndex;
-                minIndex = str.IndexOf(searchstring, minIndex + searchstring.Length);
-            }
         }
     }
 }
