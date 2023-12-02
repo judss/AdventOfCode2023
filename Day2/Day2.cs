@@ -46,7 +46,7 @@ namespace AdventOfCode2023.Day2
                 }
             }
             
-            return $"Day 2: {total}";
+            return $"Part 1: {total}";
         }
 
         public static string GetSolutionPart2()
@@ -93,7 +93,7 @@ namespace AdventOfCode2023.Day2
 
             }
             
-            return $"Day 2 - Part 2: {total}";
+            return $"Part 2: {total}";
         }
     }
 }

@@ -1,5 +1,8 @@
 namespace AdventOfCode2023.Day1
 {    
+    using System;
+    using Humanizer;
+
     public static class Day1
     {
         public static string GetSolution()
@@ -11,6 +14,12 @@ namespace AdventOfCode2023.Day1
             foreach(var input in puzzleInput)
             {
                 var numbersFromInput = new string(input.Where(char.IsDigit).ToArray());
+
+                if(numbersFromInput.Count() == 0)
+                {
+                    continue;
+                }
+
                 var firstNumber = numbersFromInput.First();
                 var lastNumber = numbersFromInput.Last();
 
@@ -21,7 +30,7 @@ namespace AdventOfCode2023.Day1
 
             var total = numbers.Sum();
 
-            return $"Day 1: {total}";
+            return $"Part 1: {total}";
         }
 
         public static string GetSolutionPart2()
@@ -29,13 +38,12 @@ namespace AdventOfCode2023.Day1
             var path = Path.Combine(Directory.GetCurrentDirectory(), "Day1/PuzzleInput.txt");
             var puzzleInput = File.ReadAllLines(path);
             var numbers = new List<int>();
-            var spelledOutNumbers = new List<string>(){ "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
             foreach(var input in puzzleInput)
             {
-                var numbersFromInput = new string(input.Where(char.IsDigit).ToArray());
-                var firstNumber = numbersFromInput.First();
-                var lastNumber = numbersFromInput.Last();
+                var firstAndLastNumbers = getFirstAndLastNumbers(input);
+                var firstNumber = firstAndLastNumbers[0];
+                var lastNumber = firstAndLastNumbers[1];
 
                 var concatinatedNumber = int.Parse($"{firstNumber}{lastNumber}");
 
@@ -44,13 +52,50 @@ namespace AdventOfCode2023.Day1
 
             var total = numbers.Sum();
 
-            return $"Day 1 - Part 2: {total}";
+            return $"Part 2: {total}";
         }
 
-        private static string getFirstNumber(){
-            var firstNumberAndIndex = new KeyValuePair<int, string>();
+        private static string[] getFirstAndLastNumbers(string input){
+            var result = new string[2];
 
-            return firstNumberAndIndex.Value;
+            var firstNumberAndIndex = new KeyValuePair<int, string>(input.Count() + 1, input);
+            var lastNumberAndIndex = new KeyValuePair<int, string>(-1, input);
+
+            for(var i = 1; i <= 9; i++)
+            {
+                var numberAsString = i.ToString();
+                var numberAsWord = i.ToWords();
+
+                if(input.Contains(numberAsString) || input.Contains(numberAsWord)){
+                    var indexes = input.AllIndexesOf(numberAsString).Concat(input.AllIndexesOf(numberAsWord));
+                    
+                    foreach(var index in indexes)
+                    {
+                        if(index < firstNumberAndIndex.Key){
+                            firstNumberAndIndex = new KeyValuePair<int, string>(index, numberAsString);
+                        }
+
+                        if(index > lastNumberAndIndex.Key){
+                            lastNumberAndIndex = new KeyValuePair<int, string>(index, numberAsString);
+                        }
+                    }
+                }
+            }
+
+            result[0] = firstNumberAndIndex.Value;
+            result[1] = lastNumberAndIndex.Value;
+
+            return result;
+        }
+
+        public static IEnumerable<int> AllIndexesOf(this string str, string searchstring)
+        {
+            int minIndex = str.IndexOf(searchstring);
+            while (minIndex != -1)
+            {
+                yield return minIndex;
+                minIndex = str.IndexOf(searchstring, minIndex + searchstring.Length);
+            }
         }
     }
 }
