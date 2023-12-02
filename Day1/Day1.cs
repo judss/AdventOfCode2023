@@ -2,9 +2,10 @@ namespace AdventOfCode2023.Day1
 {    
     public static class Day1
     {
-        public static string GetDay1Solution()
+        public static string GetSolution()
         {
-            var puzzleInput = File.ReadAllLines("/Users/i33659/source/repos/AdventOfCode2023/Day1/PuzzleInput.txt");
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "Day1/PuzzleInput.txt");
+            var puzzleInput = File.ReadAllLines(path);
             var numbers = new List<int>();
             var spelledOutNumbers = new List<string>(){ "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
