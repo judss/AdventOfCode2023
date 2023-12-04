@@ -11,7 +11,7 @@ namespace AdventOfCode2023.Days
         {
             var dayResult = new DayResult()
             {
-                Day = 0,
+                Day = dayNumber,
                 Part1Result = GetSolutionPart1(),
                 Part2Result = GetSolutionPart2()
             };
@@ -21,17 +21,11 @@ namespace AdventOfCode2023.Days
 
         private static int? GetSolutionPart1()
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "PuzzleInput.txt");
-            var puzzleInput = File.ReadAllLines(path);
-
             return null;
         }
 
         private static int? GetSolutionPart2()
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "PuzzleInput.txt");
-            var puzzleInput = File.ReadAllLines(path);
-
             return null;
         }
     }
