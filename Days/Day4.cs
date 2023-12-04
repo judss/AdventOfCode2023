@@ -30,12 +30,22 @@ namespace AdventOfCode2023.Days
                 var gameResult = game[1];
 
                 var gameResultSplit = gameResult.Split("|");
-                var gameNumbers = gameResultSplit[0];
-                var myNumbers = gameResultSplit[1];
+                var gameNumbers = gameResultSplit[0].Split(" ");
+                var myNumbers = gameResultSplit[1].Split(" ");
 
-                var winningNumbers = myNumbers.Where(x => gameNumbers.Any(z => z == x));
+                var winningNumbers = myNumbers.Where(x => gameNumbers.Any(z => z == x) && x != "");
 
-                var score = winningNumbers.Count();
+                if(winningNumbers.Count() == 0)
+                {
+                    continue;
+                }
+
+                var score = 1;
+
+                for(var i=0; i < winningNumbers.Count() - 1; i++)
+                {
+                    score *=2;
+                }
 
                 total += score;
             }
