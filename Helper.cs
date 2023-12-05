@@ -2,9 +2,17 @@ namespace AdventOfCode2023
 {
     public static class Helper
     {
-        public static string[] GetPuzzleInput(int day)
+        public static string[] GetPuzzleInput(int day, bool newLineSplit = false)
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), $"PuzzleInputs/Day{day}.txt");
+
+            if(newLineSplit){
+                var textFileContents = File.ReadAllText(path);                
+                var textBlocks = textFileContents.Split(new string[] { "\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+                return textBlocks;
+            }
+
             return File.ReadAllLines(path);
         }
 

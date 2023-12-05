@@ -7,6 +7,7 @@ var solutions = new List<DayResult>()
     Day2.GetResults(),
     Day3.GetResults(),
     Day4.GetResults(),
+    Day5.GetResults(),
 };
 
 Console.WriteLine("Advent of Code 2023!");
